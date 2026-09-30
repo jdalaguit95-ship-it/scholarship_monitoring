@@ -1,0 +1,10 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Staff - ScholarTrack</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="nav"><b>ScholarTrack STAFF</b><a class="active">Verification</a><span class="right"><span id="userInfo"></span><button class="btn btn-sm btn-danger" onclick="logout()">Logout</button></span></div>
+<div class="container">
+<div class="stats"><div class="stat"><h3 id="pendingCount">0</h3><p>Pending</p></div><div class="stat"><h3 id="verifiedCount">0</h3><p>Verified</p></div><div class="stat"><h3 id="compliantCount">0</h3><p>Compliant</p></div><div class="stat"><h3 id="deficiencyCount">0</h3><p>Deficiency</p></div><div class="stat"><h3 id="totalScholars">0</h3><p>Total Scholars</p></div></div>
+<div class="table"><h3>For Verification (BR-04, BR-05) - Every Semester Required</h3><table><thead><tr><th>Scholar</th><th>AY/Sem</th><th>GWA/Units/Fail</th><th>Status</th><th>Compliance</th><th>Action</th></tr></thead><tbody id="staffSubmissionsBody"></tbody></table></div>
+<div class="table"><h3>Compliance Result (FR-07, BR-07)</h3><table><thead><tr><th>Scholar</th><th>AY/Sem</th><th>Data</th><th>Result</th></tr></thead><tbody id="complianceBody"></tbody></table></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="app.js"></script><script>checkAuth('staff'); renderAll();</script>
+</body></html>

@@ -1,0 +1,10 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Student - ScholarTrack</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="nav"><b>ScholarTrack STUDENT</b><a class="active">My Scholarship</a><span class="right"><span id="userInfo"></span><button class="btn btn-sm btn-danger" onclick="logout()">Logout</button></span></div>
+<div class="container">
+<div class="table"><h3>My Scholar Profile</h3><div id="myProfile"></div></div>
+<div class="table"><h3>Submit Grades (FR-04) - Every Semester Required</h3><div class="form-grid"><input id="s_ay" placeholder="Academic Year ex:2024-2025"><select id="s_sem"><option>1st</option><option>2nd</option><option>Summer</option></select><input id="s_gwa" type="number" step="0.01" placeholder="GWA *"><input id="s_units" type="number" placeholder="Units Enrolled *"><input id="s_failed" type="number" placeholder="Failed Subjects"><input id="s_incomplete" type="number" placeholder="Incomplete"></div><button class="btn" onclick="submitGradeStudent()">Submit for Verification (FR-04)</button></div>
+<div class="table"><h3>My Submissions & Status (FR-09)</h3><table><thead><tr><th>AY / Sem</th><th>GWA</th><th>Status</th><th>Compliance</th></tr></thead><tbody id="mySubmissionsBody"></tbody></table></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="app.js"></script><script>checkAuth('scholar'); renderAllStudent();</script>
+</body></html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Admin - ScholarTrack</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="nav"><b>ScholarTrack ADMIN</b><a class="active">Dashboard</a><span class="right"><span id="userInfo"></span><button class="btn btn-sm btn-danger" onclick="logout()">Logout</button></span></div>
+<div class="container">
+<div class="stats"><div class="stat"><h3 id="totalScholars">0</h3><p>Total</p></div><div class="stat"><h3 id="pendingCount">0</h3><p>Pending</p></div><div class="stat"><h3 id="verifiedCount">0</h3><p>Verified</p></div><div class="stat"><h3 id="compliantCount">0</h3><p>Compliant</p></div><div class="stat"><h3 id="deficiencyCount">0</h3><p>Deficiency</p></div></div>
+<div class="table"><h3>Scholars <button class="btn btn-sm" onclick="toggle('scholarForm')">+ Add</button> <input id="searchScholar" placeholder="Search name/ID" oninput="renderScholars()" style="width:200px;display:inline-block;margin-left:10px"></h3>
+<div id="scholarForm" class="hidden"><div class="form-grid"><input id="f_student_id" placeholder="Student ID *"><input id="f_full_name" placeholder="Full Name *"><input id="f_degree" placeholder="BS IT"><select id="f_year"><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option><option>5th Year</option></select><select id="f_scholarship"></select></div><button class="btn" onclick="saveScholar()">Save</button></div>
+<table><thead><tr><th>ID</th><th>Name</th><th>Course</th><th>Scholarship</th><th>Status</th></tr></thead><tbody id="scholarsBody"></tbody></table></div>
+<div class="table"><h3>Programs <button class="btn btn-sm" onclick="toggle('progForm')">+ Add</button></h3>
+<div id="progForm" class="hidden"><div class="form-grid"><input id="p_name" placeholder="Program Name"><input id="p_gwa" type="number" step="0.01" placeholder="Required GWA ex:2.00"><input id="p_units" type="number" placeholder="Min Units"><select id="p_allow"><option value="false">No Fail</option><option value="true">Allow Fail</option></select></div><button class="btn" onclick="addProgram()">Save Program</button></div>
+<table><thead><tr><th>Program</th><th>Req GWA</th><th>Min Units</th><th>Allow Fail</th></tr></thead><tbody id="programsBody"></tbody></table></div>
+<div class="table"><h3>All Submissions (FR-05, FR-06)</h3><table><thead><tr><th>Scholar</th><th>AY/Sem</th><th>Data</th><th>Status</th><th>Compliance</th><th>Action</th></tr></thead><tbody id="submissionsBody"></tbody></table></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="app.js"></script><script>checkAuth('admin'); renderAll();</script>
+</body></html>

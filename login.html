@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ScholarTrack - Login</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="login-body">
+  <div class="login-wrapper">
+    <!-- Left side branding -->
+    <div class="login-left">
+      <div class="brand">
+        <div class="logo-icon">🎓</div>
+        <h1>ScholarTrack</h1>
+        <p>Scholarship Compliance & Monitoring System</p>
+      </div>
+      <div class="features">
+        <div class="feat"><span>✓</span> Every Semester Compliance</div>
+        <div class="feat"><span>✓</span> Auto GWA Evaluation</div>
+        <div class="feat"><span>✓</span> For Verification Workflow</div>
+      </div>
+      <div class="footer-note">Capstone Project 2026</div>
+    </div>
+
+    <!-- Right side login card -->
+    <div class="login-right">
+      <div class="login-card">
+        <h2>Welcome back</h2>
+        <p class="sub">Login to your account</p>
+
+        <label>Email Address</label>
+        <div class="input-group">
+          <span class="icon">📧</span>
+          <input id="email" type="email" placeholder="admin@gmail.com">
+        </div>
+
+        <label>Password</label>
+        <div class="input-group">
+          <span class="icon">🔒</span>
+          <input id="password" type="password" placeholder="••••••••">
+        </div>
+
+        <label>Login as</label>
+        <div class="role-selector">
+          <button class="role-btn active" data-role="admin" onclick="selectRole('admin')">👑 Admin</button>
+          <button class="role-btn" data-role="staff" onclick="selectRole('staff')">👔 Staff</button>
+          <button class="role-btn" data-role="scholar" onclick="selectRole('scholar')">🎓 Student</button>
+        </div>
+        <select id="role" style="display:none">
+          <option value="admin">Admin</option>
+          <option value="staff">Staff</option>
+          <option value="scholar">Student</option>
+        </select>
+
+        <button class="btn-login" onclick="login()">Login →</button>
+      </div>
+    </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+<script>
+function selectRole(r){
+  document.querySelectorAll('.role-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector(`[data-role="${r}"]`).classList.add('active');
+  document.getElementById('role').value = r;
+}
+</script>
+</body>
+</html>
